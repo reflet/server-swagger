@@ -1,0 +1,25 @@
+version: '3'
+
+services:
+  swagger-ui:
+    image: swaggerapi/swagger-ui
+    container_name: 'swagger-ui'
+    ports:
+      - '8080:8080'
+    volumes:
+      - ./yaml:/usr/share/nginx/html/yaml/
+    environment:
+      API_URL: /yaml/sample.yaml
+
+  swagger-editor:
+    image: swaggerapi/swagger-editor
+    container_name: 'swagger-editor'
+    ports:
+      - '60001:8080'
+
+  swagger-generator:
+    image: swaggerapi/swagger-generator
+    container_name: 'swagger-generator'
+    ports:
+      - '60002:8080'
+
